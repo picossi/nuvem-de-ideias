@@ -1,7 +1,7 @@
-import { Routes } from "@angular/router";
+import { Routes } from '@angular/router';
 
-import { LayoutComponent } from "./shared/components/layout/layout.component";
-import { IdeaListComponent } from "./modules/idea/components/idea-list/idea-list.component";
+import { LayoutComponent } from './shared/components/layout/layout.component';
+import { IdeaListComponent } from './modules/idea/components/idea-list/idea-list.component';
 
 export const routes: Routes = [
     {

@@ -1,12 +1,12 @@
-import { Component, OnInit, trigger, state, transition, animate, style, Query, ViewContainerRef, OnDestroy } from "@angular/core";
-import { IdeaNewDialog } from "../idea-new/idea-new-dialog.component";
-import { MatDialog } from "@angular/material";
-import { Idea } from "../../../../shared/models/idea.model";
-import { IdeaService } from "../../idea.service";
-import { AppComponent } from "../../../../app.component";
-import { query, stagger } from "@angular/animations";
-import { IdeaDetailsDialog } from "../idea-details/idea-details-dialog.component";
-import { Subscription } from "rxjs/Subscription";
+import { Component, OnInit, trigger, state, transition, animate, style, Query, ViewContainerRef, OnDestroy } from '@angular/core';
+import { IdeaNewDialog } from '../idea-new/idea-new-dialog.component';
+import { MatDialog } from '@angular/material';
+import { Idea } from '../../../../shared/models/idea.model';
+import { IdeaService } from '../../idea.service';
+import { AppComponent } from '../../../../app.component';
+import { query, stagger } from '@angular/animations';
+import { IdeaDetailsDialog } from '../idea-details/idea-details-dialog.component';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     selector: 'idea-list',
@@ -19,7 +19,7 @@ import { Subscription } from "rxjs/Subscription";
     //         animate('.30s ease-out', style({ opacity: '1' })),
     //       ]),
     //     ]),
-    //   ] [@fadeIn]="''"
+    //   ] [@fadeIn]=''''
 })
 export class IdeaListComponent implements OnInit, OnDestroy {
     ideas: Array<Idea> = new Array<Idea>();
@@ -38,7 +38,9 @@ export class IdeaListComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        if (this.ideaSubs) this.ideaSubs.unsubscribe();
+        if (this.ideaSubs) {
+         this.ideaSubs.unsubscribe();
+        }
     }
 
     getIdeasSubscription(): Subscription {
@@ -46,30 +48,30 @@ export class IdeaListComponent implements OnInit, OnDestroy {
             .ideaService
             .get()
             .subscribe((data: Array<Idea>) => {
-                this.ideas = data.filter(x => x.Removed == false);
+                this.ideas = data.filter(x => x.Removed === false);
                 this.isLoading = false;
-            })
+            });
     }
 
     addIdea() {
-        let dialog = this.dialog.open(IdeaNewDialog, {
+        const dialog = this.dialog.open(IdeaNewDialog, {
             width: '400px'
         });
         dialog
             .afterClosed()
             .subscribe(result => {
                 if (!result) { return; }
-                let title = result.controls.title.value;
-                let desc = result.controls.description.value;
+                const title = result.controls.title.value;
+                const desc = result.controls.description.value;
                 if (title && desc) {
-                    let idea = new Idea(null, title, desc, 0, 0, this.appComponent.currentUser, false, false);
+                    const idea = new Idea(null, title, desc, 0, 0, this.appComponent.currentUser, false, false);
                     this.ideaService.insert(idea);
                 }
             });
     }
 
     openDetails(idea: Idea) {
-        let dialog = this.dialog.open(IdeaDetailsDialog, {
+        const dialog = this.dialog.open(IdeaDetailsDialog, {
             width: '600px',
             viewContainerRef: this.viewContainerRef
         });
