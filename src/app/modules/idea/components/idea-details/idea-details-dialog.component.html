@@ -1,0 +1,12 @@
+<h1 mat-dialog-title style="text-align: center; font-size: 1.5em">{{idea.Title}}</h1>
+<mat-dialog-content>
+    <span>{{idea.Description}}</span>
+    <br>
+    <br>
+    <commentary-new [idea]=idea></commentary-new>
+    <br>
+    <div *ngFor="let commentary of comments">
+        <commentary [commentary]="commentary"></commentary>
+        <hr>
+    </div>
+</mat-dialog-content>

@@ -1,0 +1,17 @@
+<mat-toolbar color="primary" class="mat-elevation-z7">
+    <img src="assets/img/logo.png" alt="" style="max-width: 100%; height: 50px;">&nbsp;&nbsp;
+    <span style="font-family: asap, sans-serif; font-size: 1.5em"><span style="color: #56c6ff"><b>Nuvem</b></span> de Ideias</span>
+    <span class="spacer"></span>
+    
+    <button *ngIf="appComponent.currentUser.isLogged" mat-button [matMenuTriggerFor]="menu">
+      <ngx-avatar size="40" [src]="appComponent.currentUser.photoURL"  style="display: inline-block"></ngx-avatar>
+      <span>&nbsp;{{appComponent.currentUser.Name}}</span>
+    </button>
+    <mat-menu [overlapTrigger]="false" #menu="matMenu">
+      <button mat-menu-item (click)="logoff()">Sair</button>
+    </mat-menu>
+    
+    <button *ngIf="!appComponent.currentUser.isLogged" mat-button (click)="login()">ENTRAR</button>
+    
+  </mat-toolbar>
+  <router-outlet></router-outlet>

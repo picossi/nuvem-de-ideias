@@ -1,0 +1,21 @@
+.btn-downvote:hover{
+    color: #c62744;
+  }
+
+  .btn-upvote:hover{
+    color: #27c67f;
+  }
+
+.author:hover{
+  background-color: #ededed;
+  cursor: pointer
+}
+
+.author:active{
+  background-color: whitesmoke;
+}
+
+.idea-card:hover{
+  background-color: #f9fdff;
+  cursor: pointer;
+}

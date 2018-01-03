@@ -1,0 +1,17 @@
+<h1 mat-dialog-title style="text-align: center">Qual a sua ideia?</h1>
+<div>
+    <form [formGroup]="form" fxLayout="column">
+        <mat-form-field>
+            <input matInput #titleInput formControlName="title" placeholder="Dê um título" tabindex="1">
+            <mat-hint align="end">{{titleInput.value?.length || 0}}/140</mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput formControlName="description" placeholder="Conte-nos mais..." tabindex="2" matAutosizeMinRows="2"
+            matAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+        <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+                <button mat-button type="button" (click)="cancel()">Não, obrigado</button>
+                <button mat-button type="button" [mat-dialog-close]="form" cdkFocusInitial>Pronto</button>
+            </div>
+    </form>
+</div>
