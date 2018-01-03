@@ -1,6 +1,6 @@
 **Área reservada para postagem de bugs e novas features**
 
-* **Estou enviando um... **
+* __Estou enviando um...__
   - [ ] bug report
   - [ ] feature request
 
