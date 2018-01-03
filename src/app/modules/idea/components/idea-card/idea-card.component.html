@@ -10,7 +10,8 @@
     <br>
     <div fxLayout="row" fxLayoutAlign="start center">
         <div fxFlex="50" style="border: 1px solid #ededed; padding: 5px; border-radius: 5px" fxLayoutAlign="start center" class="author">
-            <ngx-avatar size="20" [src]="idea.Author.photoURL" style="display: inline-block"></ngx-avatar>&nbsp; {{idea.Author.Name}}
+            <ngx-avatar size="20" [src]="idea.Author.photoURL" style="display: inline-block"></ngx-avatar>&nbsp; 
+            <span class="truncate-name">{{idea.Author.Name}}</span>
         </div>
         <div fxFlex="50" fxLayoutAlign="end center">
             <button mat-icon-button class="btn-upvote" (click)="upVote()">
