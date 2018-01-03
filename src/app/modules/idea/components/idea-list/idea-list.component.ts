@@ -5,6 +5,7 @@ import { IdeaService } from '../../idea.service';
 import { AppComponent } from '../../../../app.component';
 import { query, stagger } from '@angular/animations';
 import { Subscription } from 'rxjs/Subscription';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'idea-list',
@@ -26,7 +27,8 @@ export class IdeaListComponent implements OnInit, OnDestroy {
 
   constructor(
     public ideaService: IdeaService,
-    public appComponent: AppComponent
+    public appComponent: AppComponent,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
