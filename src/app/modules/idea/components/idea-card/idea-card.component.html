@@ -1,4 +1,4 @@
-<mat-card style="min-width: 300px; margin: 10px" class="idea-card">
+<mat-card style="min-width: 300px; margin: 10px" class="idea-card" (click)="openDetails(idea)">
   <div fxLayout="row" fxLayoutAlign="space-between center">
     <div>{{idea.Title}}</div>
   </div>
@@ -6,15 +6,15 @@
   <br>
   <br>
   <div fxLayout="row" fxLayoutAlign="start center">
-    <div fxFlex="50" style="border: 1px solid #ededed; padding: 5px; border-radius: 5px" fxLayoutAlign="start center" class="author">
-      <ngx-avatar size="20" [src]="idea.Author.photoURL" style="display: inline-block"></ngx-avatar>&nbsp;
+    <div fxFlex="50" fxLayoutAlign="start center" class="author">
+      <ngx-avatar size="30" [src]="idea.Author.photoURL"></ngx-avatar>&nbsp;
       <span class="truncate-name">{{idea.Author.Name}}</span>
     </div>
     <div fxFlex="50" fxLayoutAlign="end center">
-      <button mat-icon-button class="btn-upvote" (click)="upVote()">
+      <button mat-icon-button class="btn-upvote" (click)="upVote($event)">
         <mat-icon>thumb_up</mat-icon>
       </button>{{idea.UpVote}}
-      <button mat-icon-button class="btn-downvote" (click)="downVote()">
+      <button mat-icon-button class="btn-downvote" (click)="downVote($event)">
         <mat-icon>thumb_down</mat-icon>
       </button>{{idea.DownVote}}
     </div>

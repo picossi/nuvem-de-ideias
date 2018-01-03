@@ -7,12 +7,7 @@
   }
 
 .author:hover{
-  background-color: #ededed;
   cursor: pointer
-}
-
-.author:active{
-  background-color: whitesmoke;
 }
 
 .idea-card:hover{

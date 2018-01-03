@@ -1,11 +1,9 @@
-import { Component, OnInit, trigger, state, transition, animate, style, Query, ViewContainerRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, trigger, state, transition, animate, style, Query, OnDestroy } from '@angular/core';
 import { IdeaNewDialogComponent } from '../idea-new/idea-new-dialog.component';
-import { MatDialog } from '@angular/material';
 import { Idea } from '../../../../shared/models/idea.model';
 import { IdeaService } from '../../idea.service';
 import { AppComponent } from '../../../../app.component';
 import { query, stagger } from '@angular/animations';
-import { IdeaDetailsDialogComponent } from '../idea-details/idea-details-dialog.component';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
@@ -27,10 +25,8 @@ export class IdeaListComponent implements OnInit, OnDestroy {
   ideaSubs: Subscription;
 
   constructor(
-    public dialog: MatDialog,
     public ideaService: IdeaService,
-    public appComponent: AppComponent,
-    public viewContainerRef: ViewContainerRef
+    public appComponent: AppComponent
   ) { }
 
   ngOnInit() {
@@ -69,13 +65,4 @@ export class IdeaListComponent implements OnInit, OnDestroy {
         }
       });
   }
-
-  openDetails(idea: Idea) {
-    const dialog = this.dialog.open(IdeaDetailsDialogComponent, {
-      width: '600px',
-      viewContainerRef: this.viewContainerRef
-    });
-    dialog.componentInstance.idea = idea;
-  }
-
 }

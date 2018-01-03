@@ -1,8 +1,9 @@
-import { Component, Input, trigger, style, state, transition, animate } from '@angular/core';
+import { Component, Input, trigger, style, state, transition, animate, ViewContainerRef } from '@angular/core';
 import { Idea } from '../../../../shared/models/idea.model';
 import { IdeaService } from '../../idea.service';
 import { AppComponent } from '../../../../app.component';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
+import { IdeaDetailsDialogComponent } from '../idea-details/idea-details-dialog.component';
 
 @Component({
   selector: 'idea-card',
@@ -15,16 +16,20 @@ export class IdeaCardComponent {
   constructor(
     public ideaService: IdeaService,
     public appComponent: AppComponent,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    public dialog: MatDialog,
+    public viewContainerRef: ViewContainerRef
   ) { }
 
-  upVote() {
+  upVote(ev) {
+    this.stopPropagation(ev);
     if (this.checkVotePermission()) {
       this.ideaService.update(this.idea.Id, 'UpVote', ++this.idea.UpVote);
     }
   }
 
-  downVote() {
+  downVote(ev) {
+    this.stopPropagation(ev);
     if (this.checkVotePermission()) {
       this.ideaService.update(this.idea.Id, 'DownVote', ++this.idea.DownVote);
     }
@@ -45,4 +50,19 @@ export class IdeaCardComponent {
     });
   }
 
+  openDetails(idea: Idea) {
+    const dialog = this.dialog.open(IdeaDetailsDialogComponent, {
+      width: '600px',
+      viewContainerRef: this.viewContainerRef
+    });
+    dialog.componentInstance.idea = idea;
+  }
+
+  /**
+   * Impede que o click da para visualizar a modal seja acionado.
+   * @param ev evento do click
+   */
+  stopPropagation(ev) {
+    ev.stopPropagation();
+  }
 }
