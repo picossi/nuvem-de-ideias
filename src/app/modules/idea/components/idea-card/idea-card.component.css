@@ -19,3 +19,9 @@
   background-color: #f9fdff;
   cursor: pointer;
 }
+
+.truncate-name{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
