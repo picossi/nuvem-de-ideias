@@ -1,5 +1,5 @@
-import { User } from "./user.model";
-import { Commentary } from "./commentary.model";
+import { User } from './user.model';
+import { Commentary } from './commentary.model';
 
 
 export class Idea{

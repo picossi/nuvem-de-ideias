@@ -13,42 +13,39 @@ import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material';
 })
 export class AppComponent implements OnInit {
 
-  public currentUser : User = new User();
+  public currentUser: User = new User();
   public teste = 123;
 
   constructor(
     public authService: AuthService,
     private router: Router,
-    private snackBar : MatSnackBar
-  ){}
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit() {
     this.getAuthStatus();
-    this.router.navigateByUrl("ideas");
+    this.router.navigateByUrl('ideas');
   }
 
-  getAuthStatus(){
+  getAuthStatus() {
     return this
       .authService
       .angularFireAuth
       .auth
       .onAuthStateChanged((data) => {
-        if(data) {
-          this.currentUser = Object.assign(this.currentUser, new User(true, data.uid, data.displayName, data.email, data.photoURL))
+        if (data) {
+          this.currentUser = Object.assign(this.currentUser, new User(true, data.uid, data.displayName, data.email, data.photoURL));
         } else {
           this.currentUser = Object.assign(this.currentUser, new User(false));
         }
       });
   }
 
-  getUser() : User{
+  getUser(): User {
     return this.currentUser;
   }
 
-  showSnackBar(title: string, action: string) : MatSnackBarRef<SimpleSnackBar> {
+  showSnackBar(title: string, action: string): MatSnackBarRef<SimpleSnackBar> {
     return this.snackBar.open(title, action, {duration: 3000});
   }
-
-  
-  
 }

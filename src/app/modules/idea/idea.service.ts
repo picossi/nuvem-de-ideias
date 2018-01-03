@@ -10,17 +10,17 @@ import { Commentary } from '../../shared/models/commentary.model';
 export class IdeaService {
 
   constructor(
-    public angularFirestore : AngularFirestore
+    public angularFirestore: AngularFirestore
   ) { }
 
-  public get() : Observable<any>{
+  public get(): Observable<any> {
     return this
       .angularFirestore
       .collection('ideas')
       .valueChanges();
   }
 
-  public insert(idea: Idea) : Promise<any> {
+  public insert(idea: Idea): Promise<any> {
     return this
       .angularFirestore
       .collection('ideas')
@@ -29,18 +29,13 @@ export class IdeaService {
       });
   }
 
-  public update(id: string, prop: string, value: any) : Promise<any> {
+  public update(id: string, prop: string, value: any): Promise<any> {
     return this
       .angularFirestore
       .collection('ideas')
       .doc(id).update({
-        [prop] : value
+        [prop]: value
       });
-  }
-
-  public teste() {
-    debugger
-    let x = this.angularFirestore.collection('ideas').doc('U2Rx0dC6kfYKqqcnS5Kj').collection('Comments').add(new Commentary('1', 'teste', null).asJson);
   }
 
 }

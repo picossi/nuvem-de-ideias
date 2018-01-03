@@ -39,8 +39,12 @@ export class IdeaDetailsDialog implements OnInit {
     }
 
     compare(c1: Commentary, c2: Commentary): number {
-        if (c1.Date > c2.Date) return -1;
-        if (c1.Date < c2.Date) return 1;
+        if (c1.Date > c2.Date) {
+            return -1;
+        }
+        if (c1.Date < c2.Date) {
+            return 1;
+        }
         return 0;
     }
 
