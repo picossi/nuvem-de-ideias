@@ -9,10 +9,10 @@ import { Subscription } from 'rxjs/Subscription';
 import { CommentsService } from '../../../comments/comments.service';
 import { Commentary } from '../../../../shared/models/commentary.model';
 
-
 @Component({
   selector: 'idea-details-dialog',
   templateUrl: './idea-details-dialog.component.html',
+  styleUrls: ['./idea-details-dialog.component.css']
 })
 export class IdeaDetailsDialogComponent implements OnInit {
   idea: Idea;
@@ -22,7 +22,8 @@ export class IdeaDetailsDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<IdeaDetailsDialogComponent>,
     public ideaService: IdeaService,
-    public commentsService: CommentsService
+    public commentsService: CommentsService,
+    public appComponent: AppComponent
   ) { }
 
   ngOnInit() {

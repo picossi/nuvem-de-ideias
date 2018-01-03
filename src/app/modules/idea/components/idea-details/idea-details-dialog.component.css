@@ -1,0 +1,16 @@
+.comment-section {
+  margin-top: 0.825em;
+  padding: 0 0.625em;
+  border-top: 1px solid rgba(0, 0, 0, 0.30);
+}
+
+.comment-section h3 {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 1em;
+}
+
+.comment-section p {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 0.825em;
+  text-align: center;
+}

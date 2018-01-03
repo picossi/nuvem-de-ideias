@@ -1,12 +1,17 @@
 <h1 mat-dialog-title style="text-align: center; font-size: 1.5em">{{idea.Title}}</h1>
 <mat-dialog-content>
-    <span>{{idea.Description}}</span>
-    <br>
-    <br>
+  <span>{{idea.Description}}</span>
+  <br>
+  <br>
+  <div class="comment-section">
+    <h3 *ngIf="!comments || comments.length === 0">Seja o primeiro a comentar</h3>
+    <h3 *ngIf="comments && comments.length > 0">{{ comments.length }} comentário{{ comments.length > 1 ? 's' : '' }}</h3>
+    <p *ngIf="!appComponent.currentUser || !appComponent.currentUser.Id">É necessário fazer login para fazer comentários</p>
     <commentary-new [idea]=idea></commentary-new>
     <br>
     <div *ngFor="let commentary of comments">
-        <commentary [commentary]="commentary"></commentary>
-        <hr>
+      <commentary [commentary]="commentary"></commentary>
+      <hr>
     </div>
+  </div>
 </mat-dialog-content>
