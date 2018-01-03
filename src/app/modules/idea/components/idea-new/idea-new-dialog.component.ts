@@ -6,29 +6,28 @@ import { AppComponent } from '../../../../app.component';
 import { IdeaService } from '../../idea.service';
 import { LayoutComponent } from '../../../../shared/components/layout/layout.component';
 
-
 @Component({
   selector: 'idea-new-dialog',
   templateUrl: './idea-new-dialog.component.html'
 })
-export class IdeaNewDialog implements OnInit{
-  form : FormGroup;
+export class IdeaNewDialogComponent implements OnInit {
+  form: FormGroup;
 
   constructor(
-    public dialogRef: MatDialogRef<IdeaNewDialog>,
+    public dialogRef: MatDialogRef<IdeaNewDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public ideaService : IdeaService,
-  ){}
+    public ideaService: IdeaService,
+  ) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.form = new FormGroup({
       title: new FormControl(null, Validators.required),
       description: new FormControl(null, Validators.required)
-    })
+    });
   }
 
-  cancel() : void {
+  cancel(): void {
     this.dialogRef.close();
   }
-  
+
 }

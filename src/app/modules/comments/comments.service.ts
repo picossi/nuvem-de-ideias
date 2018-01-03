@@ -10,28 +10,28 @@ import { Commentary } from '../../shared/models/commentary.model';
 export class CommentsService {
 
   constructor(
-    public angularFirestore : AngularFirestore
+    public angularFirestore: AngularFirestore
   ) { }
 
-  public get(ideaId : string) : Observable<any>{
+  public get(ideaId: string): Observable<any> {
     return this
       .angularFirestore
       .collection('ideas', ref => ref.orderBy('Date')).doc(ideaId).collection('comments')
       .valueChanges();
   }
 
-  public insert(ideaId : string, commentary: Commentary) : Promise<any> {
+  public insert(ideaId: string, commentary: Commentary): Promise<any> {
     return this
       .angularFirestore
       .collection('ideas')
       .doc(ideaId)
       .collection('comments')
       .add(commentary.asJson).then((ref) => {
-        this.update(ideaId, ref.id,'Id', ref.id);
+        this.update(ideaId, ref.id, 'Id', ref.id);
       });
   }
 
-  public update(ideaId: string, commentaryId : string, prop: string, value: any) : Promise<any> {
+  public update(ideaId: string, commentaryId: string, prop: string, value: any): Promise<any> {
     return this
       .angularFirestore
       .collection('ideas')
@@ -39,7 +39,7 @@ export class CommentsService {
       .collection('comments')
       .doc(commentaryId)
       .update({
-        [prop] : value
+        [prop]: value
       });
   }
 

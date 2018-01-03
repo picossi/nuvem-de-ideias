@@ -8,53 +8,53 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AvatarModule } from 'ngx-avatar';
 import { IdeaListComponent } from '../modules/idea/components/idea-list/idea-list.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { IdeaNewDialog } from '../modules/idea/components/idea-new/idea-new-dialog.component';
+import { IdeaNewDialogComponent } from '../modules/idea/components/idea-new/idea-new-dialog.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppComponent } from '../app.component';
-import { HttpModule } from '@angular/http';
 import { ChangeDetectorRef } from '@angular/core';
 import { IdeaService } from '../modules/idea/idea.service';
 import { IdeaCardComponent } from '../modules/idea/components/idea-card/idea-card.component';
-import { IdeaDetailsDialog } from '../modules/idea/components/idea-details/idea-details-dialog.component';
+import { IdeaDetailsDialogComponent } from '../modules/idea/components/idea-details/idea-details-dialog.component';
 import { CommentaryComponent } from '../modules/comments/commentary/commentary.component';
 import { CommentaryNewComponent } from '../modules/comments/commentary-new/commentary-new.component';
 import { CommentsService } from '../modules/comments/comments.service';
 import { MomentModule } from 'angular2-moment';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-    declarations: [
-        LayoutComponent,
-        IdeaListComponent,
-        IdeaNewDialog,
-        IdeaCardComponent,
-        CommentaryComponent,
-        CommentaryNewComponent,
-        IdeaDetailsDialog
-    ],
-    providers: [
-        AuthService,
-        LayoutComponent,
-        ApplicationRef,
-        IdeaService,
-        CommentsService
-    ],
-    imports: [
-        HttpModule,
-        BrowserModule,
-        MaterialModule,
-        FlexLayoutModule,
-        RouterModule,
-        AvatarModule,
-        ReactiveFormsModule,
-        FormsModule,
-        MomentModule
-    ],
-    exports: [
-        MaterialModule
-    ],
-    entryComponents: [
-        IdeaNewDialog,
-        IdeaDetailsDialog
-    ]
+  declarations: [
+    LayoutComponent,
+    IdeaListComponent,
+    IdeaNewDialogComponent,
+    IdeaCardComponent,
+    CommentaryComponent,
+    CommentaryNewComponent,
+    IdeaDetailsDialogComponent
+  ],
+  providers: [
+    AuthService,
+    LayoutComponent,
+    ApplicationRef,
+    IdeaService,
+    CommentsService
+  ],
+  imports: [
+    HttpClientModule,
+    BrowserModule,
+    MaterialModule,
+    FlexLayoutModule,
+    RouterModule,
+    AvatarModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MomentModule
+  ],
+  exports: [
+    MaterialModule
+  ],
+  entryComponents: [
+    IdeaNewDialogComponent,
+    IdeaDetailsDialogComponent
+  ]
 })
-export class SharedModule{}
+export class SharedModule { }

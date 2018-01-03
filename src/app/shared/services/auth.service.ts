@@ -7,15 +7,15 @@ import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
-    constructor(
-        public angularFireAuth : AngularFireAuth
-    ){}
+  constructor(
+    public angularFireAuth: AngularFireAuth
+  ) { }
 
-    signInWithFacebook() {
-        this.angularFireAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
-    }
+  signInWithFacebook() {
+    this.angularFireAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+  }
 
-    signOut() {
-        this.angularFireAuth.auth.signOut();
-    }
+  signOut() {
+    this.angularFireAuth.auth.signOut();
+  }
 }

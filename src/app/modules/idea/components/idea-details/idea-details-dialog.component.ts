@@ -11,46 +11,46 @@ import { Commentary } from '../../../../shared/models/commentary.model';
 
 
 @Component({
-    selector: 'idea-details-dialog',
-    templateUrl: './idea-details-dialog.component.html',
+  selector: 'idea-details-dialog',
+  templateUrl: './idea-details-dialog.component.html',
 })
-export class IdeaDetailsDialog implements OnInit {
-    idea: Idea;
-    commentsSubs: Subscription;
-    comments: Array<Commentary> = new Array<Commentary>();
+export class IdeaDetailsDialogComponent implements OnInit {
+  idea: Idea;
+  commentsSubs: Subscription;
+  comments: Array<Commentary> = new Array<Commentary>();
 
-    constructor(
-        public dialogRef: MatDialogRef<IdeaDetailsDialog>,
-        public ideaService: IdeaService,
-        public commentsService: CommentsService
-    ) { }
+  constructor(
+    public dialogRef: MatDialogRef<IdeaDetailsDialogComponent>,
+    public ideaService: IdeaService,
+    public commentsService: CommentsService
+  ) { }
 
-    ngOnInit() {
-        this.commentsSubs = this.getCommentsSubscription();
+  ngOnInit() {
+    this.commentsSubs = this.getCommentsSubscription();
+  }
+
+  getCommentsSubscription(): Subscription {
+    return this
+      .commentsService
+      .get(this.idea.Id)
+      .subscribe((data: Commentary[]) => {
+        this.comments = data.sort(this.compare);
+      });
+  }
+
+  compare(c1: Commentary, c2: Commentary): number {
+    if (c1.Date > c2.Date) {
+      return -1;
     }
-
-    getCommentsSubscription(): Subscription {
-        return this
-            .commentsService
-            .get(this.idea.Id)
-            .subscribe((data: Commentary[]) => {
-                this.comments = data.sort(this.compare);
-            });
+    if (c1.Date < c2.Date) {
+      return 1;
     }
+    return 0;
+  }
 
-    compare(c1: Commentary, c2: Commentary): number {
-        if (c1.Date > c2.Date) {
-            return -1;
-        }
-        if (c1.Date < c2.Date) {
-            return 1;
-        }
-        return 0;
-    }
-
-    cancel(): void {
-        this.dialogRef.close();
-    }
+  cancel(): void {
+    this.dialogRef.close();
+  }
 
 
 }
