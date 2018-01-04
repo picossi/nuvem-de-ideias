@@ -11,10 +11,10 @@
       <span class="truncate-name">{{idea.Author.Name}}</span>
     </div>
     <div fxFlex="50" fxLayoutAlign="end center">
-      <button mat-icon-button class="btn-upvote" (click)="upVote($event)">
+      <button mat-icon-button [ngClass]="'btn-upvote ' + (idea.Votes && idea.Votes[appComponent.currentUser.Id] ? 'btn-upvote-active' : '')" (click)="upVote($event)">
         <mat-icon>thumb_up</mat-icon>
       </button>{{idea.UpVote}}
-      <button mat-icon-button class="btn-downvote" (click)="downVote($event)">
+      <button mat-icon-button [ngClass]="'btn-downvote ' + (idea.Votes && idea.Votes[appComponent.currentUser.Id] === false ? 'btn-downvote-active' : '')" (click)="downVote($event)">
         <mat-icon>thumb_down</mat-icon>
       </button>{{idea.DownVote}}
     </div>

@@ -47,6 +47,16 @@ export class IdeaListComponent implements OnInit, OnDestroy {
       .get()
       .subscribe((data: Array<Idea>) => {
         this.ideas = data.filter(x => x.Removed === false);
+        this.ideas.forEach((i) => {
+          if (i.Votes) {
+            Object.values(i.Votes).forEach(v => {
+              i.UpVote += v ? 1 : 0;
+              i.DownVote += !v ? 1 : 0;
+            });
+          } else {
+            i.UpVote = i.DownVote = 0;
+          }
+        });
         this.isLoading = false;
       });
   }

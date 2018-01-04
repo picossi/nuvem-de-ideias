@@ -14,6 +14,7 @@ export class Idea {
     public DownVote?: number,
     public Author?: User,
     public Comments?: boolean,
-    public Removed?: boolean
+    public Removed?: boolean,
+    public Votes?: any
   ) { }
 }

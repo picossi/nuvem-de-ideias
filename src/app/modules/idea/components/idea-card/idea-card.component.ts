@@ -24,14 +24,26 @@ export class IdeaCardComponent {
   upVote(ev) {
     this.stopPropagation(ev);
     if (this.checkVotePermission()) {
-      this.ideaService.update(this.idea.Id, 'UpVote', ++this.idea.UpVote);
+      this.idea.Votes = this.idea.Votes || {};
+      if (this.idea.Votes[this.appComponent.currentUser.Id]) {
+        delete this.idea.Votes[this.appComponent.currentUser.Id];
+      } else {
+        this.idea.Votes[this.appComponent.currentUser.Id] = true;
+      }
+      this.ideaService.update(this.idea.Id, 'Votes', this.idea.Votes);
     }
   }
 
   downVote(ev) {
     this.stopPropagation(ev);
     if (this.checkVotePermission()) {
-      this.ideaService.update(this.idea.Id, 'DownVote', ++this.idea.DownVote);
+      this.idea.Votes = this.idea.Votes || {};
+      if (this.idea.Votes[this.appComponent.currentUser.Id] === false) {
+        delete this.idea.Votes[this.appComponent.currentUser.Id];
+      } else {
+        this.idea.Votes[this.appComponent.currentUser.Id] = false;
+      }
+      this.ideaService.update(this.idea.Id, 'Votes', this.idea.Votes);
     }
   }
 
