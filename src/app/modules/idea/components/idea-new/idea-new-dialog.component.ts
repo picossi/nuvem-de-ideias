@@ -21,9 +21,16 @@ export class IdeaNewDialogComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      title: new FormControl(null, Validators.required),
-      description: new FormControl(null, Validators.required)
+      title: new FormControl(null, Validators.compose([Validators.required, Validators.maxLength(140)])),
+      description: new FormControl(null, Validators.maxLength(300))
     });
+  }
+
+  save(): void {
+    if (!this.form.valid) {
+      return;
+    }
+    this.dialogRef.close(this.form);
   }
 
   cancel(): void {
