@@ -1,11 +1,11 @@
-.btn-downvote:hover{
-    color: #c62744;
-  }
+.btn-downvote:hover, .btn-downvote-active {
+  color: #c62744;
+}
 
-  .btn-upvote:hover{
-    color: #27c67f;
-  }
-
+.btn-upvote:hover, .btn-upvote-active {
+  color: #27c67f;
+}
+    
 .author:hover{
   cursor: pointer
 }
