@@ -1,22 +1,21 @@
-<mat-card style="min-width: 300px; margin: 10px" class="idea-card" (click)="openDetails(idea)">
-  <div fxLayout="row" fxLayoutAlign="space-between center">
-    <div>{{idea.Title}}</div>
-  </div>
-
-  <br>
-  <br>
-  <div fxLayout="row" fxLayoutAlign="start center">
-    <div fxFlex="50" fxLayoutAlign="start center" class="author">
-      <ngx-avatar size="30" [src]="idea.Author.photoURL"></ngx-avatar>&nbsp;
-      <span class="truncate-name">{{idea.Author.Name}}</span>
+<mat-card style="min-width: 350px; max-width: 350px; margin: 10px; min-height: 74px;" class="idea-card" (click)="openDetails(idea)">
+  <mat-card-header fxLayout="row" fxLayoutAlign="space-between center">
+    <mat-card-title>{{idea.Title}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <div fxFlex="50" fxLayoutAlign="center center" class="author" style="margin-left: 1.5em">
+        <ngx-avatar size="20" [src]="idea.Author.photoURL"></ngx-avatar>&nbsp;
+        <span class="truncate-name">{{idea.Author.Name}}</span>
+      </div>
+      <div fxFlex="50" fxLayoutAlign="end center" style="margin-right: 1.5em; color: rgba(0,0,0,.54);">
+        <button mat-icon-button [ngClass]="'btn-upvote ' + (idea.Votes && idea.Votes[appComponent.currentUser.Id] ? 'btn-upvote-active' : '')" (click)="upVote($event)">
+          <mat-icon>thumb_up</mat-icon>
+        </button>{{idea.UpVote}}
+        <button mat-icon-button [ngClass]="'btn-downvote ' + (idea.Votes && idea.Votes[appComponent.currentUser.Id] === false ? 'btn-downvote-active' : '')" (click)="downVote($event)">
+          <mat-icon>thumb_down</mat-icon>
+        </button>{{idea.DownVote}}
+      </div>
     </div>
-    <div fxFlex="50" fxLayoutAlign="end center">
-      <button mat-icon-button [ngClass]="'btn-upvote ' + (idea.Votes && idea.Votes[appComponent.currentUser.Id] ? 'btn-upvote-active' : '')" (click)="upVote($event)">
-        <mat-icon>thumb_up</mat-icon>
-      </button>{{idea.UpVote}}
-      <button mat-icon-button [ngClass]="'btn-downvote ' + (idea.Votes && idea.Votes[appComponent.currentUser.Id] === false ? 'btn-downvote-active' : '')" (click)="downVote($event)">
-        <mat-icon>thumb_down</mat-icon>
-      </button>{{idea.DownVote}}
-    </div>
-  </div>
+  </mat-card-actions>
 </mat-card>

@@ -1,7 +1,7 @@
 <mat-progress-bar mode="indeterminate" color="warn" style="position: absolute" *ngIf="isLoading"></mat-progress-bar>
 <div class="container" style="background-image: url('assets/img/pattern2.png');">
-  <ul class="flex-container wrap">
-    <idea-card *ngFor="let idea of ideas" [idea]="idea"></idea-card>
+  <ul fxLayout="row" class="flex-container wrap" fxLayoutAlign="center stretch">
+    <idea-card fxLayoutAlign="center stretch" *ngFor="let idea of ideas" [idea]="idea"></idea-card>
   </ul>
   <button mat-fab color="primary" class="fab-bottom-right" (click)="addIdea()">
     <mat-icon matTooltip="Tenho uma ideia!">wb_incandescent</mat-icon>

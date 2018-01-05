@@ -67,13 +67,14 @@ export class IdeaListComponent implements OnInit, OnDestroy {
     });
     dialog
       .afterClosed()
-      .subscribe(result => {
-        if (!result) { return; }
+      .subscribe((result) => {
+        if (!result) {
+          return;
+        }
         const title = result.controls.title.value;
         const desc = result.controls.description.value;
-        if (title && desc) {
-          const idea = new Idea(null, title, desc, 0, 0, this.appComponent.currentUser, false, false);
-          this.ideaService.insert(idea);
+        if (title) {
+          this.ideaService.insert(new Idea(null, title, desc, 0, 0, this.appComponent.currentUser, false, false));
         }
       });
   }
