@@ -20,6 +20,9 @@ import { CommentaryNewComponent } from '../modules/comments/commentary-new/comme
 import { CommentsService } from '../modules/comments/comments.service';
 import { MomentModule } from 'angular2-moment';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthDialogComponent } from './components/auth/auth-dialog/auth-dalog.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { HttpClientModule } from '@angular/common/http';
     IdeaCardComponent,
     CommentaryComponent,
     CommentaryNewComponent,
-    IdeaDetailsDialogComponent
+    IdeaDetailsDialogComponent,
+    AuthDialogComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   providers: [
     AuthService,
@@ -54,7 +60,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   entryComponents: [
     IdeaNewDialogComponent,
-    IdeaDetailsDialogComponent
+    IdeaDetailsDialogComponent,
+    AuthDialogComponent
   ]
 })
 export class SharedModule { }

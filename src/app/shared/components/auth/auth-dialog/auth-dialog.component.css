@@ -1,0 +1,10 @@
+.background{
+    height: 100%; 
+    background-size: cover; 
+    margin: -24px 0 -24px -24px
+}
+
+.forms-container{
+    height: 100%; 
+    margin-left: 30px;
+}

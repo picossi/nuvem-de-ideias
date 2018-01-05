@@ -1,0 +1,24 @@
+<form style="width: 100%">
+    <div fxLayout="row" fxLayoutAlign="center center" >
+        <ngx-avatar (click)="file.click()"  size="90" src="assets/img/user.png" style="padding: 2px"
+            [class.mat-elevation-z4]="mouseOver" (mouseover)="mouseOver=true" (mouseout)="mouseOver=false" >
+        </ngx-avatar>
+    </div>
+    <div fxLayout="column">
+        <mat-form-field floatPlaceholder="never">
+            <input matInput placeholder="Nome">
+        </mat-form-field>
+
+        <mat-form-field floatPlaceholder="never">
+            <input matInput placeholder="E-mail">
+            <span matSuffix>@forlogic.net</span>
+        </mat-form-field>
+
+        <mat-form-field floatPlaceholder="never">
+            <input matInput placeholder="Senha" type="password">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary">REGISTRAR</button>
+    </div>
+    <input type="file" #file accept="image/*" (change)="onChange(file.files)" style="opacity: 0"/>
+</form>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../../../app.component';
 import { AuthService } from '../../services/auth.service';
+import { MatDialog } from '@angular/material';
+import { AuthDialogComponent } from '../auth/auth-dialog/auth-dalog.component';
 
 @Component({
   selector: 'app-layout',
@@ -10,13 +12,19 @@ export class LayoutComponent implements OnInit {
 
   constructor(
     private appComponent: AppComponent,
-    private authService: AuthService
+    private authService: AuthService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() { }
 
   login() {
-    this.authService.signInWithFacebook();
+    // this.authService.signInWithFacebook();
+    const dialog = this.dialog.open(AuthDialogComponent, {
+      width: '750px',
+      height: '500px',
+      panelClass: 'teste'
+    });
   }
 
   logoff() {
