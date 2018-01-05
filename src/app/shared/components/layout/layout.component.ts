@@ -11,7 +11,7 @@ import { AuthDialogComponent } from '../auth/auth-dialog/auth-dalog.component';
 export class LayoutComponent implements OnInit {
 
   constructor(
-    private appComponent: AppComponent,
+    public appComponent: AppComponent,
     private authService: AuthService,
     private dialog: MatDialog
   ) { }
