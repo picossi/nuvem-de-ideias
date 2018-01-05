@@ -3,7 +3,7 @@
   <form [formGroup]="form" fxLayout="column">
     <mat-form-field>
       <input matInput #titleInput formControlName="title" placeholder="Dê um título" tabindex="1" cdkFocusInitial maxlength="140">
-      <mat-hint align="end">{{titleInput.value?.length || 0}} / 140</mat-hint>
+      <mat-hint align="end">{{titleInput.value?.length || 0}} / 50</mat-hint>
     </mat-form-field>
     <mat-form-field>
       <textarea matInput #descriptionInput formControlName="description" placeholder="Conte-nos mais..." tabindex="2" matAutosizeMinRows="2" matAutosizeMaxRows="5" maxlength="300"></textarea>
