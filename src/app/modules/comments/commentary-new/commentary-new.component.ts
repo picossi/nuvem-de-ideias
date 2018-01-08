@@ -4,6 +4,7 @@ import { IdeaService } from '../../idea/idea.service';
 import { Commentary } from '../../../shared/models/commentary.model';
 import { AppComponent } from '../../../app.component';
 import { CommentsService } from '../comments.service';
+import { AuthService } from '../../../shared/services/auth.service';
 
 @Component({
   selector: 'commentary-new',
@@ -17,14 +18,15 @@ export class CommentaryNewComponent implements OnInit {
 
   constructor(
     public commentsService: CommentsService,
-    public appComponent: AppComponent
+    public appComponent: AppComponent,
+    public authService: AuthService
   ) { }
 
   ngOnInit() { }
 
   saveCommentary(text: string) {
     if (!text) { return; }
-    Object.assign(this.commentary, new Commentary(null, text, this.appComponent.currentUser));
+    Object.assign(this.commentary, new Commentary(null, text, this.authService.currentUser));
     this.commentaryInputEl.nativeElement.value = '';
     this
       .commentsService

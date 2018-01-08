@@ -27,7 +27,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     RouterModule.forRoot(routes),
     SharedModule,
     AngularFireModule.initializeApp(FirebaseConfig),
-    AngularFirestoreModule,
+    AngularFirestoreModule
   ],
   exports: [
     AppComponent

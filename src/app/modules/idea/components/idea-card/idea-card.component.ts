@@ -4,6 +4,7 @@ import { IdeaService } from '../../idea.service';
 import { AppComponent } from '../../../../app.component';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { IdeaDetailsDialogComponent } from '../idea-details/idea-details-dialog.component';
+import { AuthService } from '../../../../shared/services/auth.service';
 
 @Component({
   selector: 'idea-card',
@@ -18,17 +19,18 @@ export class IdeaCardComponent {
     public appComponent: AppComponent,
     private snackBar: MatSnackBar,
     public dialog: MatDialog,
-    public viewContainerRef: ViewContainerRef
+    public viewContainerRef: ViewContainerRef,
+    public authService: AuthService
   ) { }
 
   upVote(ev) {
     this.stopPropagation(ev);
     if (this.checkVotePermission()) {
       this.idea.Votes = this.idea.Votes || {};
-      if (this.idea.Votes[this.appComponent.currentUser.Id]) {
-        delete this.idea.Votes[this.appComponent.currentUser.Id];
+      if (this.idea.Votes[this.authService.currentUser.uid]) {
+        delete this.idea.Votes[this.authService.currentUser.uid];
       } else {
-        this.idea.Votes[this.appComponent.currentUser.Id] = true;
+        this.idea.Votes[this.authService.currentUser.uid] = true;
       }
       this.ideaService.update(this.idea.Id, 'Votes', this.idea.Votes);
     }
@@ -38,17 +40,17 @@ export class IdeaCardComponent {
     this.stopPropagation(ev);
     if (this.checkVotePermission()) {
       this.idea.Votes = this.idea.Votes || {};
-      if (this.idea.Votes[this.appComponent.currentUser.Id] === false) {
-        delete this.idea.Votes[this.appComponent.currentUser.Id];
+      if (this.idea.Votes[this.authService.currentUser.uid] === false) {
+        delete this.idea.Votes[this.authService.currentUser.uid];
       } else {
-        this.idea.Votes[this.appComponent.currentUser.Id] = false;
+        this.idea.Votes[this.authService.currentUser.uid] = false;
       }
       this.ideaService.update(this.idea.Id, 'Votes', this.idea.Votes);
     }
   }
 
   checkVotePermission(): boolean {
-    if (!this.appComponent.currentUser || !this.appComponent.currentUser.Id) {
+    if (!this.authService.currentUser || !this.authService.currentUser.uid) {
       this.snackBar.open('Você deve fazer o login para votar', 'OK', { duration: 3000 });
       return false;
     }

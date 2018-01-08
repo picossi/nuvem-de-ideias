@@ -16,9 +16,8 @@ export class AuthDialogComponent implements OnInit {
   ngOnInit() {
   }
 
-  cancel(): void {
+  close(): void {
     this.dialogRef.close();
   }
-
 
 }

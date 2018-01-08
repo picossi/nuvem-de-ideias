@@ -1,4 +1,4 @@
-import { User } from './user.model';
+import * as firebase from 'firebase/app';
 
 export class Commentary {
 
@@ -7,7 +7,7 @@ export class Commentary {
   constructor(
     public Id?: string,
     public Text?: string,
-    public Author?: User,
+    public Author?: firebase.User,
     public Date?: number
   ) {
     this.Date = this.getCurrentDate();

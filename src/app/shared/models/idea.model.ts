@@ -1,6 +1,6 @@
 import { User } from './user.model';
 import { Commentary } from './commentary.model';
-
+import * as firebase from 'firebase/app';
 
 export class Idea {
 
@@ -12,7 +12,7 @@ export class Idea {
     public Description?: string,
     public UpVote?: number,
     public DownVote?: number,
-    public Author?: User,
+    public Author?: firebase.User,
     public Comments?: boolean,
     public Removed?: boolean,
     public Votes?: any

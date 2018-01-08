@@ -3,15 +3,15 @@
     <span style="font-family: asap, sans-serif; font-size: 1.5em"><span style="color: #56c6ff"><b>Nuvem</b></span> de Ideias</span>
     <span class="spacer"></span>
     
-    <button *ngIf="appComponent.currentUser.isLogged" mat-button [matMenuTriggerFor]="menu">
-      <ngx-avatar size="40" [src]="appComponent.currentUser.photoURL"  style="display: inline-block"></ngx-avatar>
-      <span>&nbsp;{{appComponent.currentUser.Name}}</span>
+    <button *ngIf="authService.currentUser" mat-button [matMenuTriggerFor]="menu">
+      <ngx-avatar size="40" [src]="authService.currentUser.photoURL"  style="display: inline-block"></ngx-avatar>
+      <span>&nbsp;{{authService.currentUser.displayName}}</span>
     </button>
     <mat-menu [overlapTrigger]="false" #menu="matMenu">
       <button mat-menu-item (click)="logoff()">Sair</button>
     </mat-menu>
     
-    <button *ngIf="!appComponent.currentUser.isLogged" mat-button (click)="login()">ENTRAR</button>
+    <button *ngIf="!authService.currentUser" mat-button (click)="login()">ENTRAR</button>
     
   </mat-toolbar>
   <router-outlet></router-outlet>

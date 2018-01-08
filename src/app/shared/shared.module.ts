@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthDialogComponent } from './components/auth/auth-dialog/auth-dalog.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import { StorageService } from './services/storage.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { RegisterComponent } from './components/auth/register/register.component
     LayoutComponent,
     ApplicationRef,
     IdeaService,
-    CommentsService
+    CommentsService,
+    StorageService,
   ],
   imports: [
     HttpClientModule,

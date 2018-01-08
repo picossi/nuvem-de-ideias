@@ -9,7 +9,11 @@ import * as firebase from 'firebase/app';
 export class AuthService {
   constructor(
     public angularFireAuth: AngularFireAuth
-  ) { }
+  ) {}
+
+  get currentUser(): firebase.User {
+    return this.angularFireAuth.auth.currentUser;
+  }
 
   signInWithFacebook() {
     this.angularFireAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
@@ -19,11 +23,11 @@ export class AuthService {
     this.angularFireAuth.auth.signOut();
   }
 
-  signInWithEmail(email: string, password: string) {
-    this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password);
+  signUpWithEmail(email: string, password: string): Promise<any> {
+    return this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password);
   }
 
-  signUpWithEmail(email: string, password: string) {
-    this.angularFireAuth.auth.signInWithEmailAndPassword(email, password);
+  signInWithEmail(email: string, password: string): Promise<any> {
+    return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password);
   }
 }

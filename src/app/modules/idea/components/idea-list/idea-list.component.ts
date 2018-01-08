@@ -6,6 +6,7 @@ import { AppComponent } from '../../../../app.component';
 import { query, stagger } from '@angular/animations';
 import { Subscription } from 'rxjs/Subscription';
 import { MatDialog } from '@angular/material';
+import { AuthService } from '../../../../shared/services/auth.service';
 
 @Component({
   selector: 'idea-list',
@@ -28,7 +29,8 @@ export class IdeaListComponent implements OnInit, OnDestroy {
   constructor(
     public ideaService: IdeaService,
     public appComponent: AppComponent,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -74,7 +76,7 @@ export class IdeaListComponent implements OnInit, OnDestroy {
         const title = result.controls.title.value;
         const desc = result.controls.description.value;
         if (title) {
-          this.ideaService.insert(new Idea(null, title, desc, 0, 0, this.appComponent.currentUser, false, false));
+          this.ideaService.insert(new Idea(null, title, desc, 0, 0, this.authService.currentUser, false, false));
         }
       });
   }

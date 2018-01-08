@@ -6,14 +6,14 @@
                 <br>
                 <br>
                 <div fxLayoutAlign="center center">
-                    <login-component></login-component>
+                    <login-component (loginFinished)="close()"></login-component>
                 </div>
             </mat-tab>
             <mat-tab label="Registro">
                 <br>
                 <br>
                 <div fxLayoutAlign="center center">
-                    <register-component></register-component>
+                    <register-component (registerFinished)="close()"></register-component>
                 </div>
             </mat-tab>
         </mat-tab-group>

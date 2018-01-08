@@ -1,8 +1,8 @@
 <div fxLayout="row" fxLayoutAlign="start center">
   <div fxFlex="10">
-    <ngx-avatar size="40" [src]="appComponent.currentUser.photoURL"></ngx-avatar>
+    <ngx-avatar size="40" [src]="authService.currentUser.photoURL"></ngx-avatar>
   </div>
-  <div fxFlex *ngIf="appComponent.currentUser && appComponent.currentUser.Id">
+  <div fxFlex *ngIf="authService.currentUser && authService.currentUser.uid">
     <form>
       <mat-form-field floatPlaceholder="never" style="width: 100%">
         <textarea matInput #commentaryInput placeholder="Diga algo..." tabindex="1" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" (keyup.enter)="saveCommentary(commentaryInput.value)" maxlength="500" style="white-space:pre;"></textarea>

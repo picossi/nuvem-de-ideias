@@ -8,6 +8,7 @@ import { LayoutComponent } from '../../../../shared/components/layout/layout.com
 import { Subscription } from 'rxjs/Subscription';
 import { CommentsService } from '../../../comments/comments.service';
 import { Commentary } from '../../../../shared/models/commentary.model';
+import { AuthService } from '../../../../shared/services/auth.service';
 
 @Component({
   selector: 'idea-details-dialog',
@@ -23,7 +24,8 @@ export class IdeaDetailsDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<IdeaDetailsDialogComponent>,
     public ideaService: IdeaService,
     public commentsService: CommentsService,
-    public appComponent: AppComponent
+    public appComponent: AppComponent,
+    public authService: AuthService
   ) { }
 
   ngOnInit() {

@@ -6,7 +6,7 @@
   <div class="comment-section">
     <h3 *ngIf="!comments || comments.length === 0">Seja o primeiro a comentar</h3>
     <h3 *ngIf="comments && comments.length > 0">{{ comments.length }} comentário{{ comments.length > 1 ? 's' : '' }}</h3>
-    <p *ngIf="!appComponent.currentUser || !appComponent.currentUser.Id">É necessário fazer login para fazer comentários</p>
+    <p *ngIf="!authService.currentUser || !authService.currentUser.uid">É necessário fazer login para fazer comentários</p>
     <commentary-new [idea]=idea></commentary-new>
     <br>
     <div *ngFor="let commentary of comments">
