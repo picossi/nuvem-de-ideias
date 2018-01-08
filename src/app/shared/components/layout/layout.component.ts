@@ -12,7 +12,7 @@ export class LayoutComponent implements OnInit {
 
   constructor(
     public appComponent: AppComponent,
-    private authService: AuthService,
+    public authService: AuthService,
     private dialog: MatDialog
   ) { }
 
