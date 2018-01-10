@@ -1,14 +1,14 @@
 import { Component, OnInit, Inject, ChangeDetectorRef } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Idea } from '../../../../shared/models/idea.model';
-import { AppComponent } from '../../../../app.component';
-import { IdeaService } from '../../idea.service';
-import { LayoutComponent } from '../../../../shared/components/layout/layout.component';
+import { Idea } from '../shared/idea.model';
 import { Subscription } from 'rxjs/Subscription';
-import { CommentsService } from '../../../comments/comments.service';
-import { Commentary } from '../../../../shared/models/commentary.model';
-import { AuthService } from '../../../../shared/services/auth.service';
+import { Commentary } from '../../comments/shared/commentary.model';
+import { IdeaService } from '../shared/idea.service';
+import { CommentsService } from '../../comments/shared/commentary.service';
+import { AppComponent } from '../../app.component';
+import { AuthService } from '../../auth/shared/auth.service';
+
 
 @Component({
   selector: 'idea-details-dialog',

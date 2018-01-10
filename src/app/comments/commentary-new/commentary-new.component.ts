@@ -1,10 +1,11 @@
 import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { Idea } from '../../../shared/models/idea.model';
-import { IdeaService } from '../../idea/idea.service';
-import { Commentary } from '../../../shared/models/commentary.model';
-import { AppComponent } from '../../../app.component';
-import { CommentsService } from '../comments.service';
-import { AuthService } from '../../../shared/services/auth.service';
+
+import { Idea } from '../../ideas/shared/idea.model';
+import { Commentary } from '../shared/commentary.model';
+import { CommentsService } from '../shared/commentary.service';
+import { AppComponent } from '../../app.component';
+import { AuthService } from '../../auth/shared/auth.service';
+
 
 @Component({
   selector: 'commentary-new',

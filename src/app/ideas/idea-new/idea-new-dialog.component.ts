@@ -1,10 +1,9 @@
 import { Component, OnInit, Inject, ChangeDetectorRef } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Idea } from '../../../../shared/models/idea.model';
-import { AppComponent } from '../../../../app.component';
-import { IdeaService } from '../../idea.service';
-import { LayoutComponent } from '../../../../shared/components/layout/layout.component';
+import { IdeaService } from '../shared/idea.service';
+
+
 
 @Component({
   selector: 'idea-new-dialog',

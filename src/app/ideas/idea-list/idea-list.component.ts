@@ -1,12 +1,15 @@
 import { Component, OnInit, trigger, state, transition, animate, style, Query, OnDestroy } from '@angular/core';
-import { IdeaNewDialogComponent } from '../idea-new/idea-new-dialog.component';
-import { Idea } from '../../../../shared/models/idea.model';
-import { IdeaService } from '../../idea.service';
-import { AppComponent } from '../../../../app.component';
 import { query, stagger } from '@angular/animations';
-import { Subscription } from 'rxjs/Subscription';
 import { MatDialog } from '@angular/material';
-import { AuthService } from '../../../../shared/services/auth.service';
+
+import { Subscription } from 'rxjs/Subscription';
+
+import { IdeaNewDialogComponent } from '../idea-new/idea-new-dialog.component';
+import { Idea } from '../shared/idea.model';
+import { IdeaService } from '../shared/idea.service';
+import { AppComponent } from '../../app.component';
+import { AuthService } from '../../auth/shared/auth.service';
+
 
 @Component({
   selector: 'idea-list',

@@ -1,8 +1,10 @@
 import { Component, ViewChild, OnInit, ElementRef, EventEmitter, Output } from '@angular/core';
-import { AuthService } from '../../../services/auth.service';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { User } from '../../../models/user.model';
-import { StorageService } from '../../../services/storage.service';
+
+import { AuthService } from '../shared/auth.service';
+import { StorageService } from '../../shared/services/storage.service';
+
+
 
 @Component({
     selector: 'register-component',

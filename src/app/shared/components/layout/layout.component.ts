@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../../../app.component';
-import { AuthService } from '../../services/auth.service';
 import { MatDialog } from '@angular/material';
-import { AuthDialogComponent } from '../auth/auth-dialog/auth-dalog.component';
+
+import { AuthDialogComponent } from '../../../auth/auth-dialog/auth-dalog.component';
+import { AuthService } from '../../../auth/shared/auth.service';
+
+
+
 
 @Component({
   selector: 'app-layout',

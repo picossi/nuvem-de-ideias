@@ -13,6 +13,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { IdeaModule } from './ideas/idea.module';
 
 
 
@@ -27,7 +28,8 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     RouterModule.forRoot(routes),
     SharedModule,
     AngularFireModule.initializeApp(FirebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    IdeaModule
   ],
   exports: [
     AppComponent

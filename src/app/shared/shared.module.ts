@@ -1,49 +1,24 @@
 import { NgModule, ApplicationRef } from '@angular/core';
-
-import { LayoutComponent } from './components/layout/layout.component';
-import { AuthService } from './services/auth.service';
-import { MaterialModule } from './modules/material.module';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { AvatarModule } from 'ngx-avatar';
-import { IdeaListComponent } from '../modules/idea/components/idea-list/idea-list.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { IdeaNewDialogComponent } from '../modules/idea/components/idea-new/idea-new-dialog.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { AppComponent } from '../app.component';
 import { ChangeDetectorRef } from '@angular/core';
-import { IdeaService } from '../modules/idea/idea.service';
-import { IdeaCardComponent } from '../modules/idea/components/idea-card/idea-card.component';
-import { IdeaDetailsDialogComponent } from '../modules/idea/components/idea-details/idea-details-dialog.component';
-import { CommentaryComponent } from '../modules/comments/commentary/commentary.component';
-import { CommentaryNewComponent } from '../modules/comments/commentary-new/commentary-new.component';
-import { CommentsService } from '../modules/comments/comments.service';
-import { MomentModule } from 'angular2-moment';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthDialogComponent } from './components/auth/auth-dialog/auth-dalog.component';
-import { LoginComponent } from './components/auth/login/login.component';
-import { RegisterComponent } from './components/auth/register/register.component';
+import { CommonModule } from '@angular/common';
+
+import { LayoutComponent } from './components/layout/layout.component';
+import { MaterialModule } from './modules/material.module';
+import { AvatarModule } from 'ngx-avatar';
+import { AppComponent } from '../app.component';
+import { MomentModule } from 'angular2-moment';
 import { StorageService } from './services/storage.service';
 
 @NgModule({
   declarations: [
-    LayoutComponent,
-    IdeaListComponent,
-    IdeaNewDialogComponent,
-    IdeaCardComponent,
-    CommentaryComponent,
-    CommentaryNewComponent,
-    IdeaDetailsDialogComponent,
-    AuthDialogComponent,
-    LoginComponent,
-    RegisterComponent
+    LayoutComponent
   ],
   providers: [
-    AuthService,
-    LayoutComponent,
-    ApplicationRef,
-    IdeaService,
-    CommentsService,
     StorageService,
   ],
   imports: [
@@ -58,12 +33,14 @@ import { StorageService } from './services/storage.service';
     MomentModule
   ],
   exports: [
-    MaterialModule
+    MaterialModule,
+    CommonModule,
+    AvatarModule,
+    MomentModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FlexLayoutModule
   ],
-  entryComponents: [
-    IdeaNewDialogComponent,
-    IdeaDetailsDialogComponent,
-    AuthDialogComponent
-  ]
+  entryComponents: []
 })
 export class SharedModule { }

@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentChangeAction } from 'angularfire2/firestore';
 
 import * as firebase from 'firebase/app';
-import { Idea } from '../../shared/models/idea.model';
 import { Observable } from 'rxjs/Observable';
-import { Commentary } from '../../shared/models/commentary.model';
+import { Idea } from './idea.model';
+
+
+
 
 @Injectable()
 export class IdeaService {

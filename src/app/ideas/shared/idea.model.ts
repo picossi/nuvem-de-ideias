@@ -1,5 +1,3 @@
-import { User } from './user.model';
-import { Commentary } from './commentary.model';
 import * as firebase from 'firebase/app';
 
 export class Idea {

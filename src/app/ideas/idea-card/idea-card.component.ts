@@ -1,10 +1,12 @@
 import { Component, Input, trigger, style, state, transition, animate, ViewContainerRef } from '@angular/core';
-import { Idea } from '../../../../shared/models/idea.model';
-import { IdeaService } from '../../idea.service';
-import { AppComponent } from '../../../../app.component';
 import { MatSnackBar, MatDialog } from '@angular/material';
+
 import { IdeaDetailsDialogComponent } from '../idea-details/idea-details-dialog.component';
-import { AuthService } from '../../../../shared/services/auth.service';
+import { Idea } from '../shared/idea.model';
+import { IdeaService } from '../shared/idea.service';
+import { AppComponent } from '../../app.component';
+import { AuthService } from '../../auth/shared/auth.service';
+
 
 @Component({
   selector: 'idea-card',
