@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="start center">
   <div fxFlex="10">
-    <ngx-avatar size="40" [src]="authService.currentUser.photoURL"></ngx-avatar>
+    <ngx-avatar size="40" [src]="authService.currentUser?.photoURL"></ngx-avatar>
   </div>
   <div fxFlex *ngIf="authService.currentUser && authService.currentUser.uid">
     <form>

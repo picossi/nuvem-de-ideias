@@ -5,8 +5,8 @@
   <mat-card-actions>
     <div fxLayout="row" fxLayoutAlign="center start">
       <div fxFlex="50" fxLayoutAlign="start center" class="author" style="margin-left: 1.5em">
-        <ngx-avatar size="40" [src]="idea.Author.photoURL"></ngx-avatar>&nbsp;&nbsp;
-        <span class="truncate-name">{{idea.Author.displayName}}</span>
+        <ngx-avatar size="40" [src]="idea.Author? idea.Author.photoURL : 'assets/img/user.png'"></ngx-avatar>&nbsp;&nbsp;
+        <span class="truncate-name">{{idea.Author ? idea.Author.displayName : 'Anônimo'}}</span>
       </div>
       <div fxFlex="50" fxLayoutAlign="end center" style="margin-right: 1.5em; color: rgba(0,0,0,.54);">
         <button mat-icon-button [ngClass]="'btn-upvote ' + (idea.Votes && idea.Votes[authService.currentUser?.uid] ? 'btn-upvote-active' : '')" (click)="upVote($event)">

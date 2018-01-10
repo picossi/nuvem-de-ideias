@@ -2,10 +2,12 @@
   width: 100%;
   height: calc(100vh - calc(74px + 0.825em));
   padding-top: 0.825em;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .fab-bottom-right{
-  position: absolute; 
+  position: fixed; 
   bottom: 2em; 
   right: 2em;
 }
