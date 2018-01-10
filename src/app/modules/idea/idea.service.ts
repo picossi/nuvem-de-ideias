@@ -37,4 +37,15 @@ export class IdeaService {
         [prop]: value
       });
   }
+
+  public getVotes(idea: Idea) {
+    if (idea.Votes) {
+      Object.values(idea.Votes).forEach(vote => {
+        idea.UpVote += vote ? 1 : 0;
+        idea.DownVote += !vote ? 1 : 0;
+      });
+    } else {
+      idea.UpVote = idea.DownVote = 0;
+    }
+  }
 }
