@@ -1,21 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ChangeDetectorRef } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { MatToolbarModule, MatButtonModule } from '@angular/material';
 
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
 import { AppComponent } from './app.component';
+import { FirebaseConfig } from '../environments/firebase.config';
+import { IdeaModule } from './ideas/idea.module';
+import { SharedModule } from './shared/shared.module';
 import { environment } from '../environments/environment';
 import { routes } from './app.routing';
-import { SharedModule } from './shared/shared.module';
-import { AngularFireModule } from 'angularfire2';
-import { FirebaseConfig } from '../environments/firebase.config';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonModule } from '@angular/common';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { IdeaModule } from './ideas/idea.module';
-
-
 
 @NgModule({
   declarations: [
