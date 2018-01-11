@@ -39,7 +39,8 @@ import { StorageService } from './services/storage.service';
     MomentModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    LayoutComponent
   ],
   entryComponents: []
 })

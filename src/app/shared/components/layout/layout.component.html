@@ -1,17 +1,22 @@
-<mat-toolbar color="primary" class="mat-elevation-z7">
-    <img src="assets/img/logo-app-idea.png" alt="" style="max-width: 100%; height: 55px;">&nbsp;&nbsp;
-    <span style="font-family: asap, sans-serif; font-size: 1.5em"><span style="color: #56c6ff"><b>Nuvem</b></span> de Ideias</span>
+<div class="container" style="background-image: url('assets/img/background.png');">
+  <mat-toolbar color="primary" class="mat-elevation-z7" style="width: 100%">
+    <img src="assets/img/logo-app-idea.png" alt="" style="max-width: 100%; height: 2em;">&nbsp;&nbsp;
+    <span *ngIf="!isMobile" style="font-family: asap, sans-serif; font-size: 1.5em">
+      <span style="color: #56c6ff">
+        <b>Nuvem</b>
+      </span> de Ideias</span>
     <span class="spacer"></span>
-    
+
     <button *ngIf="authService.currentUser" mat-button [matMenuTriggerFor]="menu">
-      <ngx-avatar size="40" [src]="authService.currentUser.photoURL"  style="display: inline-block"></ngx-avatar>
+      <ngx-avatar size="40" [src]="authService.currentUser.photoURL" style="display: inline-block"></ngx-avatar>
       <span>&nbsp;{{authService.currentUser.displayName}}</span>
     </button>
     <mat-menu [overlapTrigger]="false" #menu="matMenu">
       <button mat-menu-item (click)="logoff()">Sair</button>
     </mat-menu>
-    
+
     <button *ngIf="!authService.currentUser" mat-button (click)="login()">ENTRAR</button>
-    
+
   </mat-toolbar>
   <router-outlet></router-outlet>
+</div>

@@ -9,6 +9,7 @@ import { Idea } from '../shared/idea.model';
 import { IdeaService } from '../shared/idea.service';
 import { AppComponent } from '../../app.component';
 import { AuthService } from '../../auth/shared/auth.service';
+import { LayoutComponent } from '../../shared/components/layout/layout.component';
 
 
 @Component({
