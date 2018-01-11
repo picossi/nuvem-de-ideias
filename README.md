@@ -16,10 +16,22 @@ $ cd nuvem-de-ideias
 
 3. Instale as dependências necessárias para rodar o projeto. Contidos no arquivo `package.json`
 ``` npm
-$ npm install 
+$ npm install
 ```
 
-4. Rode o projeto localmente
+4. Adicione o arquivo `firebase.config.ts` dentro de /src/environments com suas configurações do firebase
+``` javascript
+export const FirebaseConfig = {
+  apiKey: 'your-api-key',
+  authDomain: 'your-auth-domain',
+  databaseURL: 'your-database-url',
+  projectId: 'your-project-id',
+  storageBucket: 'your-storage-bucket',
+  messagingSenderId: 'your-messaging-sender-id'
+};
+```
+
+5. Rode o projeto localmente
 ``` npm
 $ npm start
 ```
